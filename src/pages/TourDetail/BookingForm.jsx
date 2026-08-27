@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "./pages/Home/firebase"; // გადაამოწმეთ მისამართი (საჭიროებისამებრ დაამატეთ ../)
+import { collection, addDoc } from "firebase/firestore";
 import styles from "./BookingForm.module.css";
 
 export default function BookingForm({ tourTitle, tourPrice }) {
@@ -20,11 +22,29 @@ export default function BookingForm({ tourTitle, tourPrice }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // აქ შეგიძლიათ გააგზავნოთ მონაცემები სერვერზე ან ელ-ფოსტაზე
-    console.log("Booking Data Submitted:", { tourTitle, ...formData });
-    setIsSubmitted(true);
+    
+    try {
+      // ვწერთ ტურის ჯავშანს Firestore-ის "bookings" კოლექციაში
+      await addDoc(collection(db, "bookings"), {
+        tourTitle: tourTitle || "General Tour",
+        tourPrice: tourPrice || "N/A",
+        fullName: formData.fullName,
+        phone: formData.phone,
+        date: formData.date,
+        guests: formData.guests,
+        notes: formData.notes,
+        createdAt: new Date()
+      });
+
+      console.log("Booking Data Saved to Firebase Successfully!");
+      setIsSubmitted(true);
+
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Something went wrong while booking. Please try again.");
+    }
   };
 
   if (isSubmitted) {

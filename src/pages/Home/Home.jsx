@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -14,24 +16,44 @@ export default function Home() {
     details: ""
   });
 
+  // ეს ფუნქცია აკონტროლებს ფორმის ველებში ტექსტის აკრეფას
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  // WhatsApp-ზე გაგზავნის ფუნქცია ინგლისურად
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const message = `Hello! I would like to plan a tour:
-Name: ${formData.name}
-Email: ${formData.email}
-Phone/WhatsApp: ${formData.phone}
-Travel Dates: ${formData.dates}
-Details: ${formData.details}`;
+    try {
+      // ვწერთ მონაცემებს Firestore-ის "bookings" კოლექციაში
+      await addDoc(collection(db, "bookings"), {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        dates: formData.dates,
+        details: formData.details,
+        createdAt: new Date()
+      });
 
-    const phoneNumber = "995598520216"; // თქვენი WhatsApp ნომერი
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+      alert("Request sent successfully! We will contact you soon.");
+      
+      // ვასუფთავებთ ფორმის ველებს გაგზავნის შემდეგ
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        dates: "",
+        details: ""
+      });
+
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   // Behold Instagram Script-ის ჩატვირთვა

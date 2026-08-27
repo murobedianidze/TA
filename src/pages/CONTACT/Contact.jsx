@@ -1,13 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../../firebase"; // შეამოწმეთ რომ firebase.js ნამდვილად src/ ფოლდერშია
+import { collection, addDoc } from "firebase/firestore";
 import styles from "./Contact.module.css";
+
+// ვკითხულობთ ტურების სათაურებს პირდაპირ თქვენი ALL_TOURS მასივიდან + ვამატებთ ზოგად ვარიანტებს
+const allTours = [
+  "Kazbegi & Gergeti Trinity Church",
+  "Kakheti Wine & Culture Experience",
+  "Tbilisi Highlights & Ancient Mtskheta",
+  "Svaneti Mountain Exploration",
+  "Vardzia Cave City & Rabati Castle",
+  "Prometheus Cave & Martvili Canyon",
+  "Batumi Coast & Mountainous Adjara",
+  "Truso Valley 4x4 Off-Road Adventure",
+  "Tusheti 4x4 Wild Mountains Tour",
+  "Racha Scenic Escape & Khvanchkara",
+  "David Gareja Monastery & Rainbow Mountains",
+  "Uplistsikhe Cave Town & Gori",
+  "Okatse Canyon & Kinchkha Waterfall",
+  "Khevsureti & Mysterious Shatili",
+  "Borjomi Spa & Bakuriani Resort",
+  "Kutaisi Heritage & Gelati Monastery",
+  "Kintrishi Nature Reserve & Mtirala National Park",
+  "Telavi & Tsinandali Estate Wine Tour",
+  "Juta Valley & Chaukhi Dolomites Trekking",
+  "Katskhi Pillar & Chiatura Cable Cars",
+  "Kvatakhevi Monastery & Kavtiskhevi Valley",
+  "Custom Private Tour",
+  "General Question"
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    tourType: "Custom Tour",
+    tourType: "Kazbegi & Gergeti Trinity Church", // თავდაპირველი მნიშვნელობა
     guests: "2",
     message: ""
   });
@@ -29,10 +58,31 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // აქ შეგიძლიათ დაამატოთ API გაგზავნა
-    setIsSubmitted(true);
+    console.log("Submit ღილაკი დაჭერილია!");
+    console.log("ამოწმებს db ცვლადს:", db);
+    
+    try {
+      console.log("იწყებს addDoc მოთხოვნას...");
+      
+      const docRef = await addDoc(collection(db, "bookings"), {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        tourType: formData.tourType,
+        guests: formData.guests,
+        message: formData.message,
+        createdAt: new Date()
+      });
+
+      console.log("მონაცემები წარმატებით გაიგზავნა ბაზაში! ID:", docRef.id);
+      setIsSubmitted(true);
+
+    } catch (error) {
+      console.error("Firebase Error-ის სრული დეტალები: ", error);
+      alert("Firebase Error: " + error.message);
+    }
   };
 
   return (
@@ -56,14 +106,14 @@ export default function Contact() {
             <div className={styles.iconWrapper}>📞</div>
             <h3>Call or WhatsApp Us</h3>
             <p>Direct line to our travel managers</p>
-            <a href="tel:+995555123456" className={styles.contactLink}>+995 555 12 34 56</a>
+            <a href="tel:+995598520216" className={styles.contactLink}>+995 598 52 02 16</a>
           </div>
 
           <div className={styles.infoCard}>
             <div className={styles.iconWrapper}>✉️</div>
             <h3>Email Our Team</h3>
             <p>We typically reply within 2 hours</p>
-            <a href="mailto:info@georgiantours.com" className={styles.contactLink}>info@georgiantours.com</a>
+            <a href="mailto:bedianidze.muriko@gmail.com" className={styles.contactLink}>bedianidze.muriko@gmail.com</a>
           </div>
 
           <div className={styles.infoCard}>
@@ -133,6 +183,8 @@ export default function Contact() {
                       onChange={handleChange}
                     />
                   </div>
+                  
+                  {/* აქ ხდება ყველა ტურის სიის ავტომატურად გენერაცია */}
                   <div className={styles.formGroup}>
                     <label>Interested In</label>
                     <select
@@ -140,11 +192,11 @@ export default function Contact() {
                       value={formData.tourType}
                       onChange={handleChange}
                     >
-                      <option value="Custom Tour">Custom Private Tour</option>
-                      <option value="Kazbegi Tour">Kazbegi & Mountain Tour</option>
-                      <option value="Wine Tour">Kakheti Wine Experience</option>
-                      <option value="Svaneti Tour">Svaneti Multi-Day Trek</option>
-                      <option value="General Query">General Question</option>
+                      {allTours.map((tour, index) => (
+                        <option key={index} value={tour}>
+                          {tour}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -158,7 +210,7 @@ export default function Contact() {
                   >
                     <option value="1">Solo Traveler (1)</option>
                     <option value="2">Couple (2)</option>
-                    <option value="3-5">Small Group (3-5)</option>
+                    <option value="3-5">Family(Small Group) (3-5)</option>
                     <option value="6+">Large Group (6+)</option>
                   </select>
                 </div>
@@ -206,7 +258,7 @@ export default function Contact() {
               <h3>Prefer Instant Chat?</h3>
               <p>Chat directly with our lead tour manager on WhatsApp for quick responses.</p>
               <a 
-                href="https://wa.me/995555123456" 
+                href="https://wa.me/995598520216" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={styles.whatsappBtn}
