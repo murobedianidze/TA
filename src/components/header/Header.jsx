@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase"; // შენი firebase.js ფაილის გზა
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import AuthModal from "../AuthModal/AuthModal";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [user, setUser] = useState(null);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
+  // ვამოწმებთ ავტორიზაციის სტატუსს
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await signOut(auth);
+  };
 
   // გვერდის ზემოთ ამოქაჩვის ფუნქცია ნავიგაციისას
   const handleScrollToTop = () => {
@@ -122,8 +140,37 @@ export default function Header() {
           <Link to="/contact" onClick={handleScrollToTop} className={styles.planBtn}>
             Plan My Trip
           </Link>
+
+        {/* ავტორიზაციის დაფუძნებული ღილაკები */}
+        {user ? (
+            <div className={styles.userActions}>
+              <Link 
+                to="/my-bookings" 
+                onClick={handleScrollToTop}
+                className={styles.myBookingsLink}
+              >
+                My Bookings
+              </Link>
+              <button
+                onClick={handleLogout}
+                className={styles.logoutBtn}
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setIsAuthOpen(true)}
+              className={styles.signInBtn}
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </div>
+
+      {/* ავტორიზაციის მოდალური ფანჯარა */}
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </header>
   );
 }

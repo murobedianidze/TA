@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { db } from "./pages/Home/firebase"; // გადაამოწმეთ მისამართი (საჭიროებისამებრ დაამატეთ ../)
+import { auth } from "./pages/Home/firebase"; // მივუმათეთ auth-ის იმპორტიც
 import { collection, addDoc } from "firebase/firestore";
+import AuthModal from "./AuthModal"; // შემოვიტანეთ ავტორიზაციის მოდალი
 import styles from "./BookingForm.module.css";
 
 export default function BookingForm({ tourTitle, tourPrice }) {
@@ -13,6 +15,7 @@ export default function BookingForm({ tourTitle, tourPrice }) {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false); // მოდალის მდგომარეობა
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,8 +28,15 @@ export default function BookingForm({ tourTitle, tourPrice }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // 1. შევამოწმოთ, არის თუ არა მომხმარებელი ავტორიზებული
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      setIsAuthOpen(true); // თუ არ არის შესული, ვუხსნით მოდალს
+      return;
+    }
+
     try {
-      // ვწერთ ტურის ჯავშანს Firestore-ის "bookings" კოლექციაში
+      // 2. ვწერთ ტურის ჯავშანს Firestore-ის "bookings" კოლექციაში userId-თან ერთად
       await addDoc(collection(db, "bookings"), {
         tourTitle: tourTitle || "General Tour",
         tourPrice: tourPrice || "N/A",
@@ -35,6 +45,8 @@ export default function BookingForm({ tourTitle, tourPrice }) {
         date: formData.date,
         guests: formData.guests,
         notes: formData.notes,
+        userId: currentUser.uid,     // <--- მთავარი ცვლილება: ვინახავთ მომხმარებლის ID-ს
+        userEmail: currentUser.email, // <--- ვინახავთ მეილსაც იდენტიფიკაციისთვის
         createdAt: new Date()
       });
 
@@ -139,6 +151,9 @@ export default function BookingForm({ tourTitle, tourPrice }) {
           დაჯავშნა
         </button>
       </form>
+
+      {/* ავტორიზაციის მოდალი, რომელიც ამოვარდება თუ არაა მომხმარებელი შესული */}
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </div>
   );
 }

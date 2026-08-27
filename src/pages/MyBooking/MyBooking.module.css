@@ -1,0 +1,153 @@
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 140px 20px 80px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #1a202c;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+    color: #111827;
+  }
+  
+  .subtitle {
+    color: #6b7280;
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  
+  .emptyState {
+    text-align: center;
+    padding: 70px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px dashed #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  }
+  
+  .emptyState p {
+    color: #4b5563;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .exploreBtn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.25);
+  }
+  
+  .exploreBtn:hover {
+    background-color: #f4511e;
+    transform: translateY(-1px);
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 25px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08);
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .cardHeader h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .price {
+    font-weight: 800;
+    color: #ff5722;
+    font-size: 18px;
+    background: #fff5f2;
+    padding: 4px 10px;
+    border-radius: 8px;
+  }
+  
+  .cardBody {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+  
+  .cardBody p {
+    margin: 6px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cardBody p strong {
+    color: #374151;
+  }
+  
+  .cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 16px;
+    margin-top: 20px;
+  }
+  
+  .status {
+    font-size: 13px;
+    font-weight: 600;
+    color: #059669;
+    background: #ecfdf5;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  
+  .deleteBtn {
+    background: #fef2f2;
+    color: #dc2626;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .deleteBtn:hover {
+    background: #fee2e2;
+  }

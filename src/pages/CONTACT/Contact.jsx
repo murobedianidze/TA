@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../../firebase"; // შეამოწმეთ რომ firebase.js ნამდვილად src/ ფოლდერშია
+import { db, auth } from "../../firebase"; // <--- დავამატეთ auth
 import { collection, addDoc } from "firebase/firestore";
+import AuthModal from "../../components/AuthModal/AuthModal"; // <--- ავტორიზაციის მოდალი (მიუსადაგე გზა)
 import styles from "./Contact.module.css";
 
-// ვკითხულობთ ტურების სათაურებს პირდაპირ თქვენი ALL_TOURS მასივიდან + ვამატებთ ზოგად ვარიანტებს
 const allTours = [
   "Kazbegi & Gergeti Trinity Church",
   "Kakheti Wine & Culture Experience",
@@ -36,14 +36,14 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    tourType: "Kazbegi & Gergeti Trinity Church", // თავდაპირველი მნიშვნელობა
+    tourType: "Kazbegi & Gergeti Trinity Church",
     guests: "2",
     message: ""
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false); // <--- მოდალის სტეიტი
 
-  // გვერდზე გადასვლისას რბილი სქროლი თავში
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -60,12 +60,16 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submit ღილაკი დაჭერილია!");
-    console.log("ამოწმებს db ცვლადს:", db);
+
+    // 1. შევამოწმოთ, არის თუ არა მომხმარებელი ავტორიზებული
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      setIsAuthOpen(true); // თუ არ არის შესული, ვუხსნით მოდალს
+      return;
+    }
     
     try {
-      console.log("იწყებს addDoc მოთხოვნას...");
-      
+      // 2. ვინახავთ Firestore-ში userId-თან ერთად
       const docRef = await addDoc(collection(db, "bookings"), {
         name: formData.name,
         email: formData.email,
@@ -73,6 +77,8 @@ export default function Contact() {
         tourType: formData.tourType,
         guests: formData.guests,
         message: formData.message,
+        userId: currentUser.uid,     // <--- მთავარი ცვლილება: მომხმარებლის აიდი
+        userEmail: currentUser.email, // <--- მეილი
         createdAt: new Date()
       });
 
@@ -184,7 +190,6 @@ export default function Contact() {
                     />
                   </div>
                   
-                  {/* აქ ხდება ყველა ტურის სიის ავტომატურად გენერაცია */}
                   <div className={styles.formGroup}>
                     <label>Interested In</label>
                     <select
@@ -309,6 +314,9 @@ export default function Contact() {
           </div>
         </section>
       </div>
+
+      {/* ავტორიზაციის მოდალი */}
+      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </div>
   );
 }

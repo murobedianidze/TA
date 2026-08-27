@@ -140,3 +140,59 @@
 .exploreBtn:active {
   transform: scale(0.98);
 }
+/* Sign In ღილაკი */
+.signInBtn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.signInBtn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Log Out ღილაკი */
+.logoutBtn {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: #fecaca;
+}
+
+/* My Bookings ბმული */
+.myBookingsLink {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.myBookingsLink:hover {
+  text-decoration: underline;
+}
+/* ავტორიზებული მომხმარებლის კონტეინერი (My Bookings და Log Out-ის დასაშორებლად) */
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* აქედან არეგულირებ მანძილს (შეგიძლია 15px-დან 20px-მდე გაზარდო) */
+  margin-left: 15px;
+}
