@@ -1,0 +1,109 @@
+.detailPage {
+    padding-top: 80px;
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .hero {
+    position: relative;
+    height: 450px;
+    width: 100%;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  
+  .category {
+    background: #ff5a5f;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: fit-content;
+    margin-bottom: 12px;
+  }
+  
+  .heroOverlay h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .backLink {
+    display: inline-block;
+    color: #ff5a5f;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  .content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 24px;
+  }
+  
+  /* Tour Call-To-Action Box */
+  .tourBox {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .tourBox h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .tourBox p {
+    margin-bottom: 20px;
+    color: #64748b;
+  }
+  
+  .bookBtn {
+    display: inline-block;
+    background: #ff5a5f;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .bookBtn:hover {
+    background: #e0484d;
+  }

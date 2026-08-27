@@ -1,0 +1,623 @@
+
+
+.hero {
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("https://buytravel.ge/wp-content/uploads/2021/05/view-of-the-village-adishi-upper-svaneti-georgia-1920x1080-1.jpg")
+      no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  padding: 140px 24px 80px;
+  color: #ffffff;
+}
+
+.homeContainer {
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #111827;
+  background-color: #ffffff;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroSubtitle {
+  font-size: 32px;
+  font-style: italic;
+  font-family: Georgia, serif;
+  color: #e5e7eb;
+  margin-bottom: 4px;
+}
+
+.heroTitle {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.heroTitle span {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0;
+  display: block;
+}
+
+.heroDesc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e5e7eb;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.heroBtns {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.btnPrimary {
+  background-color: #2e6f40;
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background-color: #235832;
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.heroFeatures {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f3f4f6;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 24px;
+  max-width: 600px;
+}
+
+/* 2. GENERAL SECTION FORMATTING */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.bgLight {
+  background-color: #f9fafb;
+  max-width: 100%;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.sectionHeader h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 6px;
+}
+
+.tagline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #2e6f40;
+  text-transform: uppercase;
+}
+
+.taglineLight {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #86efac;
+  text-transform: uppercase;
+}
+
+.textBtn {
+  background: none;
+  border: none;
+  color: #2e6f40;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: gap 0.2s;
+}
+
+.textBtn:hover {
+  text-decoration: underline;
+}
+
+/* 3. POPULAR EXPERIENCES CARDS */
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.cardBody h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cardSub {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 8px 0 20px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #374151;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 14px;
+}
+
+.cardFooter strong {
+  font-size: 18px;
+  color: #111827;
+}
+
+.cardFooter button {
+  background: none;
+  border: none;
+  color: #2e6f40;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 4. TRAVEL DIFFERENTLY (6 ICONS) */
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.iconBox {
+  text-align: center;
+}
+
+.icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.iconBox h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.iconBox p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* 5. 7-DAY ITINERARY BANNER */
+.bannerSection {
+  background: url("https://images.unsplash.com/photo-1589561084283-930aa7b1ce50?auto=format&fit=crop&w=1920&q=80")
+    no-repeat center/cover;
+  color: #ffffff;
+  text-align: center;
+}
+
+.bannerOverlay {
+  background: rgba(0, 0, 0, 0.72);
+  padding: 100px 24px;
+}
+
+.bannerOverlay h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 8px 0 40px;
+}
+
+.itineraryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+.itineraryCard {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 16px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 130px;
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.itineraryCard span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #86efac;
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.itineraryCard h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.itineraryCard p {
+  font-size: 12px;
+  color: #d1d5db;
+}
+
+/* 6. BOOKING FORM SECTION */
+.formSection {
+  background-color: #0f172a;
+  color: #ffffff;
+  max-width: 100%;
+  padding: 90px 24px;
+}
+
+.formContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.formText h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 12px 0 16px;
+  line-height: 1.2;
+}
+
+.formText p {
+  color: #94a3b8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contactInfo {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  color: #e2e8f0;
+}
+
+.bookingForm {
+  background: #ffffff;
+  color: #111827;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bookingForm h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.bookingForm input,
+.bookingForm textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.bookingForm input:focus,
+.bookingForm textarea:focus {
+  border-color: #2e6f40;
+}
+
+.submitBtn {
+  background-color: #2e6f40;
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: #235832;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .formContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .heroTitle {
+    font-size: 44px;
+  }
+}
+/* 3. TRAVEL DIFFERENTLY (ახალი, ელეგანტური მუქი ფონი) */
+.bgLight {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  max-width: 100%;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ტექსტის ფერების კორექტირება მუქ ფონზე */
+.bgLight .tagline {
+  color: #4ade80; /* ღია მწვანე აქცენტი */
+}
+
+.bgLight h2 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ბლოკები ბარათების სტილში (Modern Card Style) */
+.iconBox {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px 24px;
+  border-radius: 12px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.iconBox:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  font-size: 32px;
+  display: inline-block;
+  margin-bottom: 16px;
+  background: rgba(74, 222, 128, 0.15);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.iconBox h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.iconBox p {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+/* REVIEWS & INSTAGRAM COMBINED SECTION */
+.socialSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.socialContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.sectionHeaderCompact {
+  margin-bottom: 24px;
+}
+
+.sectionHeaderCompact h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 4px;
+}
+
+/* REVIEWS SIDE */
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.stars {
+  color: #f59e0b;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.reviewText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.reviewer strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+}
+
+.reviewer span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* INSTAGRAM SIDE */
+.instaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.instaItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.instaItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.instaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instaItem:hover img {
+  transform: scale(1.08);
+}
+
+.instaItem:hover .instaOverlay {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .socialContainer {
+    grid-template-columns: 1fr;
+  }
+}

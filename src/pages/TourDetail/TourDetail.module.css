@@ -1,0 +1,159 @@
+.pageContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 60px; /* ზედა padding header-ისთვის */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+  }
+  
+  .backBtn {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .backBtn:hover {
+    color: #000;
+  }
+  
+  .tourTitle {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+  }
+  
+  .layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* აუცილებელია sticky sidebar-ისთვის */
+  }
+  
+  /* მარცხენა მხარე: ინფორმაცია */
+  .leftContent {
+    flex: 1; /* იკავებს დარჩენილ ადგილს */
+    min-width: 0;
+  }
+  
+  .mainImage {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .section {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .sectionTitle {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    color: #2c3e50;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .includedIcon {
+    color: #27ae60;
+    font-weight: bold;
+  }
+  
+  .excludedIcon {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  /* მარჯვენა მხარე: დაჯავშნა (Sticky) */
+  .rightSidebar {
+    width: 350px; /* ფიქსირებული სიგანე */
+    position: sticky;
+    top: 100px; /* სქროლვისას გაჩერდება აქ */
+  }
+  
+  .bookingCard {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+  
+  .priceBlock {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .priceLabel {
+    color: #7f8c8d;
+    font-size: 14px;
+  }
+  
+  .priceValue {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e67e22; /* სტაფილოსფერი, turebi.ge-ს მსგავსად */
+    margin: 5px 0;
+  }
+  
+  .bookBtn {
+    width: 100%;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 15px;
+  }
+  
+  .bookBtn:hover {
+    background-color: #d35400;
+  }
+  
+  .contactInfo {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+  
+  /* მობილური ვერსიისთვის */
+  @media (max-width: 900px) {
+    .layout {
+      flex-direction: column;
+    }
+    .rightSidebar {
+      width: 100%;
+      position: static; /* მობილურში აღარ დაეკიდება ეკრანს */
+    }
+  }

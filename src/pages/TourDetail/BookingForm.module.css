@@ -1,0 +1,128 @@
+.bookingCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    max-width: 450px;
+    width: 100%;
+  }
+  
+  .formTitle {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: #1a202c;
+  }
+  
+  .priceTag {
+    font-size: 0.95rem;
+    color: #718096;
+    margin-bottom: 20px;
+  }
+  
+  .priceTag span {
+    color: #2b6cb0;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .row .inputGroup {
+    flex: 1;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .inputGroup label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+  }
+  
+  .inputGroup input,
+  .inputGroup textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  
+  .inputGroup input:focus,
+  .inputGroup textarea:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  }
+  
+  .submitBtn {
+    margin-top: 8px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submitBtn:hover {
+    background-color: #e64a19;
+  }
+  
+  /* SUCCESS STATE */
+  .successCard {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #c6f6d5;
+    text-align: center;
+    max-width: 450px;
+  }
+  
+  .successIcon {
+    width: 50px;
+    height: 50px;
+    background-color: #38a169;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+  }
+  
+  .resetBtn {
+    margin-top: 16px;
+    background-color: #edf2f7;
+    color: #2d3748;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .resetBtn:hover {
+    background-color: #e2e8f0;
+  }
