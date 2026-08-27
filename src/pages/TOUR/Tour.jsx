@@ -338,7 +338,151 @@ export const ALL_TOURS = [
       { time: "11:00", title: "Kvatakhevi Monastery", desc: "Explore the 12th-century monastery and forested courtyard" },
       { time: "13:30", title: "Nature Picnic & Walk", desc: "Relaxing outdoor lunch break surrounded by nature" }
     ]
-  }
+  },
+  {
+    id: 22,
+    title: "Zugdidi Dadiani Palace & Botanical Garden",
+    category: "culture",
+    region: "Samegrelo",
+    image: "https://bakurianiwater.ge/cities/uploads/locations/5cfa88e267ef8.jpg",
+    duration: "1 Day",
+    price: 95,
+    highlights: ["Dadiani Palace Museum", "Zugdidi Botanical Garden", "Megrelian Cuisine"],
+    description: "Explore the historic Dadiani Palace complex in Zugdidi, home to royal artifacts, and stroll through the magnificent 19th-century botanical gardens.",
+    itinerary: [
+      { time: "08:00", title: "Departure from Tbilisi", desc: "Drive towards Western Georgia (Samegrelo region)" },
+      { time: "12:00", title: "Dadiani Palace Museum", desc: "Guided tour of the historical palace and Napoleon Bonaparte's personal items" },
+      { time: "14:30", title: "Zugdidi Botanical Garden", desc: "Walk through the lush exotic plant collections" }
+    ]
+  },
+  {
+    id: 23,
+    title: "Martvili Canyon & Balda Canyon Natural Monument",
+    category: "nature",
+    region: "Samegrelo",
+    image: "https://nationalparks.ge/files/15380478216709%20martvili.jpg",
+    duration: "1 Day",
+    price: 110,
+    highlights: ["Martvili Boat Ride", "Balda Canyon Waterfalls", "Emerald River"],
+    description: "Discover the breathtaking turquoise waters of Martvili Canyon. Enjoy a relaxing boat ride between mossy limestone walls and explore nearby Balda waterfalls.",
+    itinerary: [
+      { time: "08:30", title: "Departure from Tbilisi", desc: "Drive to Martvili municipality" },
+      { time: "11:30", title: "Martvili Canyon Boat Tour", desc: "Scenic boat ride on the emerald river canyon" },
+      { time: "14:30", title: "Balda Canyon & Waterfalls", desc: "Hike through the forest to hidden waterfalls and suspension bridges" }
+    ]
+  },
+  {
+    id: 24,
+    title: "Prometheus Cave & Sataplia Karst Caves",
+    category: "nature",
+    region: "Samegrelo-Zemo Svaneti",
+    image: "https://nationalparks.ge/files/155246206220sataplia2.jpg",
+    duration: "1 Day",
+    price: 105,
+    highlights: ["Illuminated Stalactites", "Dinosaur Footprints", "Underground River"],
+    description: "Experience magical subterranean worlds. Walk through Prometheus Cave's illuminated stalactite halls and visit Sataplia to see real prehistoric dinosaur footprints.",
+    itinerary: [
+      { time: "09:00", title: "Departure from Tbilisi", desc: "Drive towards Imereti/Samegrelo border area" },
+      { time: "11:30", title: "Sataplia Reserve", desc: "Walk through the glass viewpoint and see dinosaur footprints in the canopy" },
+      { time: "14:30", title: "Prometheus Cave", desc: "Guided underground walking tour among colorful stalagmites and stalactites" }
+    ]
+  },
+  {
+    id: 25,
+    title: "Nokalakevi Ancient Archaeological City & Hot Springs",
+    category: "culture",
+    region: "Samegrelo",
+    image: "https://cdn.georgiantravelguide.com/storage/files/town-fortress-nokalakevi-senaki.jpg",
+    duration: "1 Day",
+    price: 100,
+    highlights: ["Archaeological Site", "Tebris Khazini Museum", "Natural Hot Springs"],
+    description: "Step back into the ancient Kingdom of Colchis. Explore the ruins of Nokalakevi fortress and relax in natural sulfur hot springs by the Tekhuri River.",
+    itinerary: [
+      { time: "08:30", title: "Departure from Tbilisi", desc: "Drive to Senaki municipality" },
+      { time: "11:30", title: "Nokalakevi Fortress Ruins", desc: "Explore ancient stone walls, royal baths, and St. 40 Martyrs church" },
+      { time: "15:00", title: "Tekhuri Hot Springs", desc: "Relaxing dip in natural thermal sulfur waters" }
+    ]
+  },
+  {
+    id: 26,
+    title: "Tsalenjikha Salkhino Palace & Abasha River Canyons",
+    category: "nature",
+    region: "Samegrelo",
+    image: "https://georgiavoyage.ge/wp-content/uploads/2025/01/Salkhino-palace.png",
+    duration: "1 Day",
+    price: 115,
+    highlights: ["Salkhino Dadiani Palace", "Abasha River Canyons", "Local Vineyards"],
+    description: "Visit the summer residence of the Dadiani princes in Salkhino, surrounded by ancient vineyards, and explore the wild canyons of the Abasha River.",
+    itinerary: [
+      { time: "09:00", title: "Departure from Zugdidi/Tbilisi", desc: "Drive into northern Samegrelo hills" },
+      { time: "11:00", title: "Salkhino Dadiani Palace", desc: "Explore the historic summer palace and historic OJaleshi wine cellars" },
+      { time: "14:00", title: "Abasha River Canyon Trek", desc: "Explore hidden waterfalls and rock formations along the river" }
+    ]
+  },
+  {
+    id: 27,
+    title: "Tobavarchkhili Alpine Lakes Trekking (Extreme 4x4)",
+    category: "mountains",
+    region: "Samegrelo",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDYnK-cZftwmYsKWuBhf4wMB7WhXrQAxNMDG0BMIbJl5jVUHzXXcdBIj28&s=10",
+    duration: "3 Days",
+    price: 390,
+    highlights: ["Silver Lake of Toba", "Egrisi Mountains", "Alpine Wilderness"],
+    description: "An ultimate 3-day extreme adventure into the heart of the Egrisi Mountains to discover Tobavarchkhili ('Silver Lake'), one of Georgia's most remote alpine lakes.",
+    itinerary: [
+      { time: "Day 1", title: "Jvari to Okorti Off-Road", desc: "Extreme 4x4 jeep ride into the Egrisi range followed by alpine trekking" },
+      { time: "Day 2", title: "Tobavarchkhili Lake Exploration", desc: "Full day around the crystal-clear glacial lake surrounded by towering peaks" },
+      { time: "Day 3", title: "Descent & Return", desc: "Trek back down to the meeting point and return drive" }
+    ]
+  },
+  {
+    id: 28,
+    title: "Papantskhvili Lake & Mystery of Khobi Nature",
+    category: "nature",
+    region: "Samegrelo",
+    image: "https://cdn.georgiantravelguide.com/storage/files/papantsqvilis-tba-papantskvili-lake-4.jpg",
+    duration: "1 Day",
+    price: 105,
+    highlights: ["Papantskhvili Lake", "Floating Islands", "Scenic Forest Trails"],
+    description: "Discover the mysterious Papantskhvili Lake in Samegrelo, famous for its unique floating islands and serene natural surroundings hidden in lush greenery.",
+    itinerary: [
+      { time: "08:30", title: "Departure from Zugdidi", desc: "Drive towards the scenic countryside of Samegrelo" },
+      { time: "11:00", title: "Papantskhvili Lake Exploration", desc: "Walk around the legendary lake and observe its unique floating vegetation" },
+      { time: "14:00", title: "Picnic & Lakeside Relaxation", desc: "Enjoy a peaceful outdoor lunch surrounded by pristine nature" }
+    ]
+  },
+  {
+    id: 29,
+    title: "Kolkheti National Park Boat Tour & Paliastomi Lake",
+    category: "sea",
+    region: "Samegrelo",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnj397CaYF9sLsffx2V3pIwCNm9as1RZ0LYqtKSp5A_w4OrzdJOUrSaeyo&s=10",
+    duration: "1 Day",
+    price: 100,
+    highlights: ["Paliastomi Lake Boat Ride", "Pichori River Safari", "Bird Watching"],
+    description: "Explore the unique wetlands of Kolkheti National Park. Take a boat safari along the Pichori River through dense relic forests out into Lake Paliastomi.",
+    itinerary: [
+      { time: "09:00", title: "Departure from Poti/Tbilisi", desc: "Drive to Kolkheti National Park visitor center" },
+      { time: "11:00", title: "Pichori River & Paliastomi Boat Safari", desc: "Boat tour through wetland ecosystems and bird-watching towers" },
+      { time: "14:00", title: "Black Sea Coast Walk", desc: "Relaxation by the Paliastomi lake shore and Black Sea coast" }
+    ]
+  },
+  {
+    id: 30,
+    title: "Rukhi Fortress Historical Tour",
+    category: "culture",
+    region: "Samegrelo",
+    image: "https://cdn.georgiantravelguide.com/storage/files/rukhis-tsikhe-rukhi-castle-2.jpg",
+    duration: "1 Day",
+    price: 90,
+    highlights: ["Rukhi Fortress Ruins", "Enguri River Views", "Historical Odishi Region"],
+    description: "Explore the historic Rukhi Fortress, a prominent 17th-century architectural and defensive landmark situated on the banks of the Enguri River in Samegrelo.",
+    itinerary: [
+      { time: "09:00", title: "Departure from Zugdidi", desc: "Drive short distance towards Rukhi village along the Enguri River" },
+      { time: "10:30", title: "Rukhi Fortress Exploration", desc: "Guided walk through the ancient stone battlements and historical ruins" },
+      { time: "13:30", title: "Local Lunch & Cultural Walk", desc: "Enjoy traditional Megrelian hospitality and panoramic views of the valley" }
+    ]
+  },
 ];
 export default function Tours() {
   const [selectedCategory, setSelectedCategory] = useState("all");
