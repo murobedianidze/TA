@@ -1,9 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  // ფორმის ველების მდგომარეობა (State)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    dates: "",
+    details: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // WhatsApp-ზე გაგზავნის ფუნქცია ინგლისურად
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const message = `Hello! I would like to plan a tour:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone/WhatsApp: ${formData.phone}
+Travel Dates: ${formData.dates}
+Details: ${formData.details}`;
+
+    const phoneNumber = "995598520216"; // თქვენი WhatsApp ნომერი
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   // Behold Instagram Script-ის ჩატვირთვა
   useEffect(() => {
@@ -252,7 +281,6 @@ export default function Home() {
               <h2>Instagram @murobedianidze</h2>
             </div>
 
-            {/* Behold HTML Element */}
             <behold-widget feed-id="PZ8pU4i7QDvjAUE8rbHy"></behold-widget>
           </div>
 
@@ -273,15 +301,47 @@ export default function Home() {
             </div>
           </div>
 
-          <form className={styles.bookingForm} onSubmit={(e) => e.preventDefault()}>
+          <form className={styles.bookingForm} onSubmit={handleSubmit}>
             <h3>Tell us about your trip</h3>
             <div className={styles.formGrid}>
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Email" required />
-              <input type="tel" placeholder="WhatsApp / Phone" />
-              <input type="date" placeholder="Travel Dates" />
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Your Name" 
+                value={formData.name} 
+                onChange={handleChange} 
+                required 
+              />
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Email" 
+                value={formData.email} 
+                onChange={handleChange} 
+                required 
+              />
+              <input 
+                type="tel" 
+                name="phone" 
+                placeholder="WhatsApp / Phone" 
+                value={formData.phone} 
+                onChange={handleChange} 
+              />
+              <input 
+                type="text" 
+                name="dates" 
+                placeholder="Travel Dates" 
+                value={formData.dates} 
+                onChange={handleChange} 
+              />
             </div>
-            <textarea placeholder="Additional Details or Special Requests..." rows="3"></textarea>
+            <textarea 
+              name="details" 
+              placeholder="Additional Details or Special Requests..." 
+              rows="3"
+              value={formData.details}
+              onChange={handleChange}
+            ></textarea>
             <button type="submit" className={styles.submitBtn}>
               Send My Request
             </button>

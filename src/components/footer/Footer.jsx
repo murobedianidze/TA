@@ -55,12 +55,12 @@ function Footer() {
         </div>
 
         <div className={styles.column}>
-          <h3>Popular Tours</h3>
-
-          <Link to={getTourId("Kazbegi")} onClick={handleScrollToTop}>Kazbegi</Link>
-          <Link to={getTourId("Kakheti")} onClick={handleScrollToTop}>Kakheti</Link>
-          <Link to={getTourId("Batumi")} onClick={handleScrollToTop}>Batumi</Link>
-          <Link to={getTourId("Svaneti")} onClick={handleScrollToTop}>Svaneti</Link>
+          <h3>Top Destinations</h3>
+          <p>Kazbegi & Caucasus</p>
+          <p>Kakheti Wine Region</p>
+          <p>Svaneti & Racha</p>
+          <p>Borjomi & Vardzia</p>
+          <p>Batumi & Adjara</p>
         </div>
 
         <div className={styles.column}>
