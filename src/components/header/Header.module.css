@@ -196,3 +196,74 @@
   gap: 20px; /* აქედან არეგულირებ მანძილს (შეგიძლია 15px-დან 20px-მდე გაზარდო) */
   margin-left: 15px;
 }
+/* ჰამბურგერის ღილაკი კომპიუტერზე დამალულია */
+.hamburgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 0.5rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+/* მობილური ეკრანები (მაგ: 768 პიქსელამდე) */
+@media (max-width: 768px) {
+  /* ვმალავთ ჩვეულებრივ მენიუს და დესკტოპ ქმედებებს */
+  .navMenu,
+  .headerActions {
+    display: none;
+  }
+
+  /* ვაჩვენებთ ჰამბურგერის ღილაკს */
+  .hamburgerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ჩამოსაშლელი მობილური მენიუ */
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mobileNavLink {
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobileNavLink.active {
+    color: #007bff; /* შენი აქტიური ფერი */
+  }
+
+  .mobileActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+  }
+
+  .userActionsMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}

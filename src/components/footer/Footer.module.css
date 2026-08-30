@@ -1,127 +1,147 @@
 .footer {
-    background: #111;
-    color: white;
-    padding-top: 70px;
+  background-color: #1a1a1a; /* მუქი და პროფესიონალური ფონი */
+  color: #ffffff;
+  padding: 4rem 2rem 2rem;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+/* კომპანიის ბლოკი (ლოგო, ტექსტი, სოციალურები) */
+.company {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #007bff; /* აქცენტური ფერი, შეგიძლია შეცვალო */
+}
+
+.company p {
+  color: #9ca3af;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.socials a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.socials a:hover {
+  color: #ffffff;
+}
+
+/* დანარჩენი სვეტები (Quick Links, Top Destinations, Contact) */
+.column {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.column h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.column a,
+.column p {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.column a:hover {
+  color: #ffffff;
+}
+
+/* Book a Tour ღილაკი ფუტერში */
+.button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  width: fit-content;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* ქვედა ზოლი (ქოფირაითი) */
+.bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #374151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bottom p {
+  margin: 0;
+}
+
+/* მობილური რეზოლუცია (ტელეფონებისთვის) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
   }
-  
+
   .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-  
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 50px;
-  
-    padding-bottom: 60px;
+    flex-direction: column; /* სვეტები ჩამოლაგდება ვერტიკალურად */
+    gap: 2.5rem;
   }
-  
-  .company {
-    max-width: 330px;
-  }
-  
-  .logo {
-    display: flex;
-    flex-direction: column;
-  
-    color: white;
-    text-decoration: none;
-  
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 3px;
-  
-    margin-bottom: 20px;
-  }
-  
-  .logo span {
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-top: 4px;
-  }
-  
-  .company p {
-    color: #aaa;
-    line-height: 1.7;
-    font-size: 14px;
-  }
-  
-  .column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .column h3 {
-    font-size: 17px;
-    margin-bottom: 22px;
-  }
-  
-  .column a {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 13px;
-  
-    transition: 0.3s;
-  }
-  
-  .column a:hover {
-    color: #f4c542;
-    transform: translateX(3px);
-  }
-  
-  .column p {
-    color: #aaa;
-    font-size: 14px;
-    margin: 0 0 13px;
-  }
-  
-  .socials {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-  }
-  
-  .socials a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .button {
-    background: #f4c542;
-    color: #111 !important;
-  
-    padding: 12px 20px;
-  
-    border-radius: 25px;
-  
-    width: fit-content;
-  
-    margin-top: 12px;
-  
-    font-weight: 600;
-  }
-  
-  .button:hover {
-    background: white;
-    transform: translateY(-2px);
-  }
-  
+
   .bottom {
-    border-top: 1px solid #2b2b2b;
-  
-    width: 90%;
-    max-width: 1200px;
-  
-    margin: auto;
-  
-    padding: 22px 0;
-  
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
-  
-  .bottom p {
-    color: #777;
-    font-size: 12px;
-  }
+}
