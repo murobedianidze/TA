@@ -388,3 +388,12 @@
     justify-content: center;
   }
 }
+.mobileMenu {
+  background-color: rgba(17, 24, 39, 0.85); /* მუქი გამჭვირვალე ფონი */
+  backdrop-filter: blur(12px); /* ძლიერი დაბინდვა */
+  color: #ffffff;
+}
+
+.mobileNavLink {
+  color: #f3f4f6;
+}
