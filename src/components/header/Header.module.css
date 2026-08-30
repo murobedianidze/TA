@@ -267,3 +267,124 @@
     gap: 0.8rem;
   }
 }
+
+/* ჰამბურგერის ღილაკი დესკტოპზე დამალულია */
+.hamburgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1f2937;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+/* მობილური მენიუს ფრეიმი (Fullscreen Overlay) */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* როდესაც მენიუ აქტიურია (იხსნება) */
+.mobileMenu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.mobileNavLink {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mobileNavLink:hover,
+.mobileNavLink.active {
+  color: #007bff;
+}
+
+.mobileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 260px;
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.2rem;
+}
+
+.mobileWhatsapp {
+  color: #25d366;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.mobilePlanBtn {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.signInBtnMobile,
+.logoutBtnMobile {
+  background-color: #f3f4f6;
+  border: none;
+  color: #1f2937;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.logoutBtnMobile {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* მედია ქვერი მობილურებისთვის */
+@media (max-width: 768px) {
+  .navMenu,
+  .headerActions {
+    display: none;
+  }
+
+  .hamburgerBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

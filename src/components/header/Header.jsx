@@ -11,7 +11,7 @@ export default function Header() {
 
   const [user, setUser] = useState(null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // ჰამბურგერის სტატუსი
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -31,12 +31,12 @@ export default function Header() {
       left: 0,
       behavior: "smooth"
     });
-    setIsMobileMenuOpen(false); // ლინკზე დაჭერისას მენიუ იხურება
+    setIsMobileMenuOpen(false);
   };
 
   const handleScrollTo = (e, sectionId) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false); // მენიუს დახურვა
+    setIsMobileMenuOpen(false);
 
     if (location.pathname === "/") {
       const element = document.getElementById(sectionId);
@@ -167,27 +167,27 @@ export default function Header() {
           )}
         </div>
 
-        {/* ჰამბურგერის ღილაკი (ჩანს მხოლოდ მობილურზე) */}
+        {/* ჰამბურგერის ღილაკი */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
           className={styles.hamburgerBtn}
           aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? (
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
         </button>
       </div>
 
-      {/* მობილური ჩამოსაშლელი მენიუ */}
-      {isMobileMenuOpen && (
-        <div className={styles.mobileMenu}>
+      {/* თანამედროვე სრულ ეკრანიანი მობილური მენიუ (Overlay) */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ""}`}>
+        <div className={styles.mobileMenuContent}>
           <NavLink 
             to="/" 
             onClick={handleScrollToTop}
@@ -251,11 +251,11 @@ export default function Header() {
               href="https://wa.me/995598520216"
               target="_blank"
               rel="noreferrer"
-              className={styles.whatsappIcon}
+              className={styles.mobileWhatsapp}
             >
-              💬 WhatsApp
+              💬 WhatsApp Chat
             </a>
-            <Link to="/contact" onClick={handleScrollToTop} className={styles.planBtn}>
+            <Link to="/contact" onClick={handleScrollToTop} className={styles.mobilePlanBtn}>
               Plan My Trip
             </Link>
 
@@ -270,7 +270,7 @@ export default function Header() {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className={styles.logoutBtn}
+                  className={styles.logoutBtnMobile}
                 >
                   Log Out
                 </button>
@@ -281,14 +281,14 @@ export default function Header() {
                   setIsAuthOpen(true);
                   setIsMobileMenuOpen(false);
                 }}
-                className={styles.signInBtn}
+                className={styles.signInBtnMobile}
               >
                 Sign In
               </button>
             )}
           </div>
         </div>
-      )}
+      </div>
 
       {/* ავტორიზაციის მოდალური ფანჯარა */}
       <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
