@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "BROWSER=google\\ chrome vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "homepage": "https://murobedianidze.github.io/TA"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
